@@ -1,3 +1,17 @@
+import moment from 'moment'
+import { ManOutlined, WomanOutlined } from '@ant-design/icons'
+import { Button } from '../../Components/UI/Button'
+import { Input } from '../../Components/UI/Input'
+/*
+function filterData(data) {
+  return function formatter() {
+    return data.map(item => ({
+      text: formatter(item),
+      value: formatter(item),
+    }))
+  }
+}
+*/
 export const starships = [
   {
     title: 'Name',
@@ -21,12 +35,14 @@ export const starships = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
 ]
@@ -42,6 +58,14 @@ export const people = [
     title: 'Gender',
     dataIndex: 'gender',
     key: 'gender',
+    render: gender =>
+      gender === 'male' ? (
+        <ManOutlined />
+      ) : gender === 'female' ? (
+        <WomanOutlined />
+      ) : (
+        gender
+      ),
     width: '20%',
   },
   {
@@ -54,12 +78,14 @@ export const people = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
 ]
@@ -87,12 +113,14 @@ export const films = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
 ]
@@ -120,12 +148,14 @@ export const species = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
 ]
@@ -136,6 +166,13 @@ export const planets = [
     dataIndex: 'name',
     key: 'name',
     width: '20%',
+    filterDropdown: (
+      <div className='custom-filter-dropdown'>
+        <Input />
+        <Button type='primary'>Search</Button>
+      </div>
+    ),
+    onFilter: (value, record) => record.name.indexOf(value) === 0,
   },
   {
     title: 'Population',
@@ -153,12 +190,14 @@ export const planets = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
 ]
@@ -186,12 +225,14 @@ export const vehicles = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
+    render: date => moment(date).format('LLLL'),
     width: '20%',
   },
 ]

@@ -1,31 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import 'antd/dist/antd.css'
+import { Layout, Menu } from 'antd'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { HomeContainer } from './style'
-import { adapter, columns } from './helper'
+import { columns } from './helper'
+import { dataAPI } from '../../api/fetchData'
 import { Table } from '../../Components/Table'
-import { fetchData } from '../../api/fetchData'
+import { fetchInitialData } from '../../store/features/dataSlice'
+
+const { Header, Content, Footer } = Layout
 
 export const Home = () => {
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(false)
+  const data = useSelector(state => state.data.initial)
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    const apiCall = async () => {
-      setLoading(true)
-      const swapi = await fetchData('https://swapi.dev/api/')
+    dispatch(fetchInitialData(dataAPI))
+  }, [dispatch])
 
-      const result = adapter(swapi)
+  console.log('home data', data)
 
-      setData(result)
-      setLoading(false)
-    }
-    apiCall()
-  }, [])
-
-  return loading ? (
-    <div>LOADING...</div>
-  ) : (
-    <HomeContainer>
-      <Table dataSource={data} columns={columns} />
-    </HomeContainer>
+  return (
+    <Layout className='layout'>
+      <Header>
+        <div className='logo' />
+        <Menu theme='dark' mode='horizontal' />
+      </Header>
+      <Content style={{ padding: '0 50px' }}>
+        <Table dataSource={data} columns={columns} />
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>
+        May The 4th Be With You Created by Konstantin Lebedev
+      </Footer>
+    </Layout>
   )
 }

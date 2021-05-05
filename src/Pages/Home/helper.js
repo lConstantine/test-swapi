@@ -1,14 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link } from '../../Components/UI/Link'
+import { Button } from '../../Components/UI/Button'
 
 export const columns = [
   {
-    title: 'Номер',
+    title: 'Number',
     dataIndex: 'key',
     key: 'number',
     width: '25%',
   },
   {
-    title: 'Название',
+    title: 'Name',
     dataIndex: 'name',
     key: 'name',
     width: '25%',
@@ -24,11 +25,15 @@ export const columns = [
     dataIndex: '',
     key: 'button',
     width: '25%',
-    render: record => <Link to={`${record.name}`}>Открыть страницу</Link>,
+    render: record => (
+      <Button>
+        <Link to={`${record.name}`}>Открыть страницу</Link>
+      </Button>
+    ),
   },
 ]
 
-export const adapter = (object) => {
+export const adapter = object => {
   const array = Object.entries(object)
   const result = array.map((innerArray, index) => ({
     name: innerArray[0],

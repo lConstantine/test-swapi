@@ -7,3 +7,5 @@ export const fetchData = async url => {
     console.error(err)
   }
 }
+
+export const dataAPI = 'https://swapi.dev/api/'
