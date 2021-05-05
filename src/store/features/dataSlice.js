@@ -7,7 +7,8 @@ export const fetchInitialData = createAsyncThunk(
   async url => {
     const response = await fetch(url)
     const json = await response.json()
-    return adapter(json)
+    const array = await adapter(json)
+    return array
   }
 )
 
@@ -22,7 +23,7 @@ export const fetchFinalData = createAsyncThunk(
 
 const dataSlice = createSlice({
   name: 'data',
-  initialState: { initial: [], final:{}, loading: 'idle' },
+  initialState: { initial: [], final: {}, loading: 'idle' },
   reducers: {},
   extraReducers: {
     [fetchInitialData.fulfilled]: (state, action) => {

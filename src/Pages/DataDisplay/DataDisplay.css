@@ -1,0 +1,27 @@
+.content {
+  padding: 0 50px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.heading {
+  color: white;
+}
+
+.layout {
+  height: 100%;
+}
+
+.logo {
+  background-image: url(../../assets/darth-vader.svg) no-repeat;
+  width: 100px;
+  filter: invert(85%) sepia(100%) saturate(2%) hue-rotate(101deg)
+    brightness(108%) contrast(101%);
+}

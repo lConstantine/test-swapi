@@ -6,33 +6,33 @@ export const starships = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    width: '20%',
+    width: '15%',
   },
   {
     title: 'Model',
     dataIndex: 'model',
     key: 'model',
-    width: '20%',
+    width: '25%',
   },
   {
     title: 'Passengers',
     dataIndex: 'passengers',
     key: 'passengers',
-    width: '20%',
+    width: '10%',
   },
   {
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
 ]
 
@@ -55,7 +55,7 @@ export const people = [
       ) : (
         gender
       ),
-    width: '20%',
+    width: '10%',
   },
   {
     title: 'Birth year',
@@ -68,14 +68,14 @@ export const people = [
     dataIndex: 'created',
     key: 'created',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
 ]
 
@@ -96,21 +96,21 @@ export const films = [
     title: 'Release date',
     dataIndex: 'release_date',
     key: 'release_date',
-    width: '20%',
+    width: '10%',
   },
   {
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
 ]
 
@@ -119,13 +119,13 @@ export const species = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    width: '20%',
+    width: '15%',
   },
   {
     title: 'Classification',
     dataIndex: 'classification',
     key: 'classification',
-    width: '20%',
+    width: '15%',
   },
   {
     title: 'Language',
@@ -138,14 +138,14 @@ export const species = [
     dataIndex: 'created',
     key: 'created',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
 ]
 
@@ -154,13 +154,13 @@ export const planets = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    width: '20%',
+    width: '15%',
   },
   {
     title: 'Population',
     dataIndex: 'population',
     key: 'population',
-    width: '20%',
+    width: '15%',
     filters: [
       {
         text: '< 1',
@@ -196,14 +196,14 @@ export const planets = [
     dataIndex: 'created',
     key: 'created',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
 ]
 
@@ -224,20 +224,20 @@ export const vehicles = [
     title: 'Passengers',
     dataIndex: 'passengers',
     key: 'passengers',
-    width: '20%',
+    width: '10%',
   },
   {
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
     render: date => moment(date).format('LLLL'),
-    width: '20%',
+    width: '25%',
   },
 ]

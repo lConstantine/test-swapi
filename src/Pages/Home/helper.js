@@ -27,7 +27,7 @@ export const columns = [
     width: '25%',
     render: record => (
       <Button>
-        <Link to={`${record.name}`}>Открыть страницу</Link>
+        <Link to={`${record.name}`}>Open Page</Link>
       </Button>
     ),
   },

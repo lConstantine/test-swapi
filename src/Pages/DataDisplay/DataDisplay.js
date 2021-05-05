@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import * as columns from './helper'
 import { dataAPI } from '../../api'
 import { Table } from '../../Components/Table'
+import logo from '../../assets/darth-vader.svg'
 import { Link } from '../../Components/UI/Link'
 import { Button } from '../../Components/UI/Button'
 import { fetchFinalData } from '../../store/features/dataSlice'
@@ -24,15 +25,15 @@ export const DataDisplay = () => {
     dispatch(fetchFinalData(url))
   }, [url, dispatch])
 
-  const onChange = (pagination, filters, sorter) => {
+  const onChange = pagination => {
     const paginationUrl = `${url}/?page=${pagination.current}`
     dispatch(fetchFinalData(paginationUrl))
   }
 
   return (
     <Layout className='layout'>
-      <Header>
-        <div className='logo' />
+      <Header className='header'>
+        <img src={logo} className='logo' alt='darth-logo' />
         <Menu theme='dark' mode='horizontal'>
           <Menu.Item key='1'>
             <Button>
@@ -41,11 +42,13 @@ export const DataDisplay = () => {
           </Menu.Item>
         </Menu>
       </Header>
-      <Content style={{ padding: '0 50px' }}>
+      <Content className='content'>
         <Table
           dataSource={data.results}
           columns={columns[selection]}
           onChange={onChange}
+          sticky={true}
+          scroll={{ y: 550 }}
           pagination={{
             total: data.count,
             hideOnSinglePage: true,
