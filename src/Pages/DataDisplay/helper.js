@@ -1,17 +1,6 @@
 import moment from 'moment'
 import { ManOutlined, WomanOutlined } from '@ant-design/icons'
-import { Button } from '../../Components/UI/Button'
-import { Input } from '../../Components/UI/Input'
-/*
-function filterData(data) {
-  return function formatter() {
-    return data.map(item => ({
-      text: formatter(item),
-      value: formatter(item),
-    }))
-  }
-}
-*/
+
 export const starships = [
   {
     title: 'Name',
@@ -166,19 +155,35 @@ export const planets = [
     dataIndex: 'name',
     key: 'name',
     width: '20%',
-    filterDropdown: (
-      <div className='custom-filter-dropdown'>
-        <Input />
-        <Button type='primary'>Search</Button>
-      </div>
-    ),
-    onFilter: (value, record) => record.name.indexOf(value) === 0,
   },
   {
     title: 'Population',
     dataIndex: 'population',
     key: 'population',
     width: '20%',
+    filters: [
+      {
+        text: '< 1',
+        value: 0,
+      },
+      {
+        text: '<= 10000',
+        value: 10000,
+      },
+      {
+        text: '<= 10000000',
+        value: 10000000,
+      },
+      {
+        text: '<= 1000000000000',
+        value: 1000000000000,
+      },
+    ],
+    onFilter: (value, record) => {
+      if (value === 0)
+        return +record.population === 0 || record.population === 'unknown'
+      return +record.population <= value
+    },
   },
   {
     title: 'Terrain',

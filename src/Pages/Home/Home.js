@@ -4,7 +4,7 @@ import { Layout, Menu } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { columns } from './helper'
-import { dataAPI } from '../../api/fetchData'
+import { dataAPI } from '../../api'
 import { Table } from '../../Components/Table'
 import { fetchInitialData } from '../../store/features/dataSlice'
 
@@ -18,8 +18,6 @@ export const Home = () => {
     dispatch(fetchInitialData(dataAPI))
   }, [dispatch])
 
-  console.log('home data', data)
-
   return (
     <Layout className='layout'>
       <Header>
@@ -27,7 +25,11 @@ export const Home = () => {
         <Menu theme='dark' mode='horizontal' />
       </Header>
       <Content style={{ padding: '0 50px' }}>
-        <Table dataSource={data} columns={columns} />
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{ hideOnSinglePage: true }}
+        />
       </Content>
       <Footer style={{ textAlign: 'center' }}>
         May The 4th Be With You Created by Konstantin Lebedev

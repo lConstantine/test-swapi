@@ -5,11 +5,10 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import * as columns from './helper'
-import { dataAPI } from '../../api/fetchData'
+import { dataAPI } from '../../api'
 import { Table } from '../../Components/Table'
 import { Link } from '../../Components/UI/Link'
 import { Button } from '../../Components/UI/Button'
-import { Pagination } from '../../Components/Pagination'
 import { fetchFinalData } from '../../store/features/dataSlice'
 
 const { Header, Content, Footer } = Layout
@@ -25,8 +24,10 @@ export const DataDisplay = () => {
     dispatch(fetchFinalData(url))
   }, [url, dispatch])
 
-  console.log('display data', data)
-  console.log('display data.results', data.results)
+  const onChange = (pagination, filters, sorter) => {
+    const paginationUrl = `${url}/?page=${pagination.current}`
+    dispatch(fetchFinalData(paginationUrl))
+  }
 
   return (
     <Layout className='layout'>
@@ -41,8 +42,16 @@ export const DataDisplay = () => {
         </Menu>
       </Header>
       <Content style={{ padding: '0 50px' }}>
-        <Table dataSource={data.results} columns={columns[selection]} />
-        <Pagination defaultCurrent={1} total={data.count} />
+        <Table
+          dataSource={data.results}
+          columns={columns[selection]}
+          onChange={onChange}
+          pagination={{
+            total: data.count,
+            hideOnSinglePage: true,
+            showSizeChanger: false,
+          }}
+        />
       </Content>
       <Footer style={{ textAlign: 'center' }}>
         May The 4th Be With You Created by Konstantin Lebedev
