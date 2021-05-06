@@ -9,6 +9,7 @@ export const Table = ({
   pagination,
   sticky,
   scroll,
+  loading,
 }) => {
   return (
     <AntTable
@@ -18,6 +19,7 @@ export const Table = ({
       onChange={onChange}
       sticky={sticky}
       scroll={scroll}
+      loading={loading}
     />
   )
 }

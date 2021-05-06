@@ -1,3 +1,8 @@
+.button {
+  align-self: center;
+  margin-left: 100px;
+}
+
 .content {
   padding: 0 50px;
 }
@@ -8,7 +13,8 @@
 
 .header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .heading {
@@ -20,8 +26,6 @@
 }
 
 .logo {
-  background-image: url(../../assets/darth-vader.svg) no-repeat;
   width: 100px;
-  filter: invert(85%) sepia(100%) saturate(2%) hue-rotate(101deg)
-    brightness(108%) contrast(101%);
+  height: 90%;
 }

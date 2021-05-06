@@ -1,6 +1,39 @@
 import moment from 'moment'
 import { ManOutlined, WomanOutlined } from '@ant-design/icons'
 
+export const finalDataAdapter = (object) => {
+  const results = object.results.map((innerObject, index) => ({
+      ...innerObject,
+      key: index+1,
+    }))
+  return ({
+    ...object,
+    results
+  })
+}
+
+const genderSelection = gender => {
+  if (gender === 'male') {
+    return <ManOutlined />
+  }
+  if (gender === 'female') {
+    return <WomanOutlined />
+  }
+  return gender
+}
+
+const momentFormat = date => moment(date).format('LLLL')
+
+const populationFilter = (value, record) => {
+  if (value === 0)
+    return +record.population === 0 || record.population === 'unknown'
+  return +record.population <= value
+}
+
+export const loader = state => {
+  return state === 'pending'
+}
+
 export const starships = [
   {
     title: 'Name',
@@ -24,14 +57,14 @@ export const starships = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
 ]
@@ -47,14 +80,7 @@ export const people = [
     title: 'Gender',
     dataIndex: 'gender',
     key: 'gender',
-    render: gender =>
-      gender === 'male' ? (
-        <ManOutlined />
-      ) : gender === 'female' ? (
-        <WomanOutlined />
-      ) : (
-        gender
-      ),
+    render: gender => genderSelection(gender),
     width: '10%',
   },
   {
@@ -67,14 +93,14 @@ export const people = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
 ]
@@ -102,14 +128,14 @@ export const films = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
 ]
@@ -137,14 +163,14 @@ export const species = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
 ]
@@ -179,11 +205,7 @@ export const planets = [
         value: 1000000000000,
       },
     ],
-    onFilter: (value, record) => {
-      if (value === 0)
-        return +record.population === 0 || record.population === 'unknown'
-      return +record.population <= value
-    },
+    onFilter: (value, record) => populationFilter(value, record),
   },
   {
     title: 'Terrain',
@@ -195,14 +217,14 @@ export const planets = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
 ]
@@ -230,14 +252,14 @@ export const vehicles = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => moment(date).format('LLLL'),
+    render: date => momentFormat(date),
     width: '25%',
   },
 ]

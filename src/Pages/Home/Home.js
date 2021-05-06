@@ -1,35 +1,36 @@
 import React, { useEffect } from 'react'
-import 'antd/dist/antd.css'
-import './Home.css'
-import { Layout, Menu } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
+import { Layout } from 'antd'
+import 'antd/dist/antd.css'
 
-import logo from '../../assets/darth-vader.svg'
-import { columns } from './helper'
-import { dataAPI } from '../../api'
+import { fetchData } from '../../store/features/dataSlice'
+import logo from '../../assets/logo.svg'
 import { Table } from '../../Components/Table'
-import { fetchInitialData } from '../../store/features/dataSlice'
+import { baseURL } from '../../api'
+import { columns, loader } from './helper'
+import './Home.css'
 
 const { Header, Content, Footer } = Layout
 
 export const Home = () => {
-  const data = useSelector(state => state.data.initial)
+  const { initialData, loading } = useSelector(state => state.data)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchInitialData(dataAPI))
+    dispatch(fetchData(baseURL))
   }, [dispatch])
 
   return (
     <Layout className='layout'>
       <Header className='header'>
         <img src={logo} className='logo' alt='darth-logo' />
-        <h1 className='heading'>MAGENTA STRIKES BACK</h1>
+        <h1 className='heading'>Magenta Strikes Back</h1>
       </Header>
       <Content className='content'>
         <Table
-          dataSource={data}
+          dataSource={initialData}
           columns={columns}
+          loading={loader(loading)}
           pagination={{ hideOnSinglePage: true }}
         />
       </Content>

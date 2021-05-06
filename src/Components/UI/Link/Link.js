@@ -1,7 +1,10 @@
 import React from 'react'
-
-import { StyledLink } from './style'
+import { Link as RouterLink } from 'react-router-dom'
 
 export const Link = ({ to, children }) => {
-  return <StyledLink to={to}>{children}</StyledLink>
+  return (
+    <RouterLink className='link' to={to}>
+      {children}
+    </RouterLink>
+  )
 }

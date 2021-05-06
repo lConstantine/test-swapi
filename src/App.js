@@ -1,9 +1,8 @@
-import './App.css'
-
 import { Switch, Route } from 'react-router-dom'
 
-import { Home } from './Pages/Home'
 import { DataDisplay } from './Pages/DataDisplay'
+import { Home } from './Pages/Home'
+import './App.css'
 
 function App() {
   return (

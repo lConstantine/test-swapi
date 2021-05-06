@@ -42,3 +42,7 @@ export const adapter = object => {
   }))
   return result
 }
+
+export const loader = state => {
+  return state === 'pending'
+}
