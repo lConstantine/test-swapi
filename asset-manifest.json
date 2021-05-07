@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/test-swapi/static/css/main.f1c7471f.chunk.css",
+    "main.js": "/test-swapi/static/js/main.c77c7d50.chunk.js",
+    "main.js.map": "/test-swapi/static/js/main.c77c7d50.chunk.js.map",
+    "runtime-main.js": "/test-swapi/static/js/runtime-main.077e2ce1.js",
+    "runtime-main.js.map": "/test-swapi/static/js/runtime-main.077e2ce1.js.map",
+    "static/css/2.54787924.chunk.css": "/test-swapi/static/css/2.54787924.chunk.css",
+    "static/js/2.922d7daa.chunk.js": "/test-swapi/static/js/2.922d7daa.chunk.js",
+    "static/js/2.922d7daa.chunk.js.map": "/test-swapi/static/js/2.922d7daa.chunk.js.map",
+    "index.html": "/test-swapi/index.html",
+    "static/css/2.54787924.chunk.css.map": "/test-swapi/static/css/2.54787924.chunk.css.map",
+    "static/css/main.f1c7471f.chunk.css.map": "/test-swapi/static/css/main.f1c7471f.chunk.css.map",
+    "static/js/2.922d7daa.chunk.js.LICENSE.txt": "/test-swapi/static/js/2.922d7daa.chunk.js.LICENSE.txt",
+    "static/media/logo.22b58c52.svg": "/test-swapi/static/media/logo.22b58c52.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.077e2ce1.js",
+    "static/css/2.54787924.chunk.css",
+    "static/js/2.922d7daa.chunk.js",
+    "static/css/main.f1c7471f.chunk.css",
+    "static/js/main.c77c7d50.chunk.js"
+  ]
+}
