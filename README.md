@@ -10,9 +10,7 @@ Things used:
 - Redux toolkit
 - AntD
 
-You can play with the app here:
-
-or get it running locally by cloning the repo and using the basic create-react-app script:
+Get the app running locally by cloning the repo and using the basic create-react-app script:
 
 ### `npm start`
 
