@@ -4,7 +4,7 @@ import { Layout } from 'antd'
 import 'antd/dist/antd.css'
 
 import { fetchData } from '../../store/features/dataSlice'
-import logo from '../../assets/logo.svg'
+import { Icon } from '../../Components/UI/IconFolder'
 import { Table } from '../../Components/Table'
 import { baseURL } from '../../api'
 import { columns, loader } from './helper'
@@ -23,11 +23,12 @@ export const Home = () => {
   return (
     <Layout className='layout'>
       <Header className='header'>
-        <img src={logo} className='logo' alt='darth-logo' />
+        <Icon />
         <h1 className='heading'>Magenta Strikes Back</h1>
       </Header>
       <Content className='content'>
         <Table
+          className='ant-table'
           dataSource={initialData}
           columns={columns}
           loading={loader(loading)}

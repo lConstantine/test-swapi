@@ -5,12 +5,13 @@ import { Layout } from 'antd'
 import 'antd/dist/antd.css'
 
 import { fetchData } from '../../store/features/dataSlice'
+import { Icon } from '../../Components/UI/IconFolder'
 import { Button } from '../../Components/UI/Button'
 import { Link } from '../../Components/UI/Link'
-import logo from '../../assets/logo.svg'
 import { Table } from '../../Components/Table'
 import { baseURL } from '../../api'
 import * as helper from './helper'
+import './DataDisplay.css'
 
 const { Header, Content, Footer } = Layout
 
@@ -30,12 +31,10 @@ export const DataDisplay = () => {
     dispatch(fetchData(paginationUrl))
   }
 
-  console.log('DataDisplay', finalData)
-
   return (
     <Layout className='layout'>
       <Header className='header'>
-        <img src={logo} className='logo' alt='darth-logo' />
+        <Icon />
         <Button className='button'>
           <Link to='/'>Go Home</Link>
         </Button>

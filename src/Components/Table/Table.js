@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Table as AntTable } from 'antd'
 
 export const Table = ({
@@ -10,9 +9,11 @@ export const Table = ({
   sticky,
   scroll,
   loading,
+  filterMultiple,
 }) => {
   return (
     <AntTable
+      className='table'
       dataSource={dataSource}
       columns={columns}
       pagination={pagination}

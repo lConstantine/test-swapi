@@ -7,6 +7,7 @@ export const columns = [
     dataIndex: 'key',
     key: 'number',
     width: '25%',
+    responsive: ['lg'],
   },
   {
     title: 'Name',
@@ -19,6 +20,7 @@ export const columns = [
     dataIndex: 'api',
     key: 'api',
     width: '25%',
+    responsive: ['md'],
   },
   {
     title: '',
@@ -33,7 +35,7 @@ export const columns = [
   },
 ]
 
-export const adapter = object => {
+export const initialDataAdapter = object => {
   const array = Object.entries(object)
   const result = array.map((innerArray, index) => ({
     name: innerArray[0],

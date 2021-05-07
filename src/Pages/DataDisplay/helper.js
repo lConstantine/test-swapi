@@ -1,15 +1,15 @@
 import moment from 'moment'
 import { ManOutlined, WomanOutlined } from '@ant-design/icons'
 
-export const finalDataAdapter = (object) => {
+export const finalDataAdapter = object => {
   const results = object.results.map((innerObject, index) => ({
-      ...innerObject,
-      key: index+1,
-    }))
-  return ({
+    ...innerObject,
+    key: index + 1,
+  }))
+  return {
     ...object,
-    results
-  })
+    results,
+  }
 }
 
 const genderSelection = gender => {
@@ -52,20 +52,23 @@ export const starships = [
     dataIndex: 'passengers',
     key: 'passengers',
     width: '10%',
+    responsive: ['md'],
   },
   {
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
 ]
 
@@ -80,28 +83,31 @@ export const people = [
     title: 'Gender',
     dataIndex: 'gender',
     key: 'gender',
-    render: gender => genderSelection(gender),
     width: '10%',
+    render: gender => genderSelection(gender),
   },
   {
     title: 'Birth year',
     dataIndex: 'birth_year',
     key: 'birth_year',
     width: '20%',
+    responsive: ['md'],
   },
   {
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
 ]
 
@@ -117,6 +123,7 @@ export const films = [
     dataIndex: 'producer',
     key: 'producer',
     width: '20%',
+    responsive: ['md'],
   },
   {
     title: 'Release date',
@@ -128,15 +135,17 @@ export const films = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
 ]
 
@@ -158,20 +167,23 @@ export const species = [
     dataIndex: 'language',
     key: 'language',
     width: '20%',
+    responsive: ['md'],
   },
   {
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
 ]
 
@@ -187,21 +199,22 @@ export const planets = [
     dataIndex: 'population',
     key: 'population',
     width: '15%',
+    responsive: ['md'],
     filters: [
       {
         text: '< 1',
         value: 0,
       },
       {
-        text: '<= 10000',
+        text: '<= 10 000',
         value: 10000,
       },
       {
-        text: '<= 10000000',
+        text: '<= 10 000 000',
         value: 10000000,
       },
       {
-        text: '<= 1000000000000',
+        text: '<= 1 000 000 000 000',
         value: 1000000000000,
       },
     ],
@@ -217,15 +230,17 @@ export const planets = [
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => momentFormat(date),
+    responsive: ['lg'],
     width: '25%',
+    render: date => momentFormat(date),
   },
 ]
 
@@ -247,19 +262,22 @@ export const vehicles = [
     dataIndex: 'passengers',
     key: 'passengers',
     width: '10%',
+    responsive: ['md'],
   },
   {
     title: 'Created',
     dataIndex: 'created',
     key: 'created',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
   {
     title: 'Edited',
     dataIndex: 'edited',
     key: 'edited',
-    render: date => momentFormat(date),
     width: '25%',
+    responsive: ['lg'],
+    render: date => momentFormat(date),
   },
 ]

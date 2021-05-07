@@ -1,16 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { adapter } from '../../Pages/Home/helper'
+import { initialDataAdapter } from '../../Pages/Home/helper'
 import { finalDataAdapter } from '../../Pages/DataDisplay/helper'
 
 export const fetchData = createAsyncThunk('swapi', async (url, thunkAPI) => {
   try {
     const response = await fetch(url)
     const json = await response.json()
-    console.log('payload', json)
     return json
   } catch (err) {
-    console.log(err)
     return err
   }
 })
@@ -29,9 +27,8 @@ const dataSlice = createSlice({
       if (state.loading === 'pending') {
         state.loading = 'idle'
       }
-      console.log('action.payload', action.payload)
       if (!action.payload.count) {
-        state.initialData = adapter(action.payload)
+        state.initialData = initialDataAdapter(action.payload)
       } else {
         state.finalData = finalDataAdapter(action.payload)
       }
