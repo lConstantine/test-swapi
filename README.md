@@ -10,7 +10,9 @@ Things used:
 - Redux toolkit
 - AntD
 
-Get the app running locally by cloning the repo and using the basic create-react-app script:
+You can play with the app here: https://lconstantine.github.io/test-swapi/
+
+or get it running locally by cloning the repo and using the basic create-react-app script:
 
 ### `npm start`
 
